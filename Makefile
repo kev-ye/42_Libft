@@ -14,7 +14,7 @@ SUB_DIR	:= ctype \
 		   memory \
 		   string \
 		   io \
-		   lst		   
+		   list		   
 DIRS	:= $(OBJ_DIR) $(addprefix $(OBJ_DIR)/, $(SUB_DIR))
 
 # FILES
@@ -43,7 +43,7 @@ SUB_SRC := ft_strlen.c \
 		   ft_strncmp.c \
 		   ft_strlcpy.c \
 		   ft_strlcat.c \
-		   ft_strrchr.c \
+		   ft_strnstr.c \
 		   ft_atoi.c \
 		   ft_strdup.c \
 		   ft_substr.c \
@@ -67,7 +67,7 @@ SUB_S_B	:= ft_lstnew.c \
 		   ft_lstclear.c \
 		   ft_lstiter.c \
 		   ft_lstmap.c
-S_BONUS	:= $(addprefix lst/, $(SUB_S_B))
+S_BONUS	:= $(addprefix list/, $(SUB_S_B))
 OBJ 	:= $(SRC:%.c=$(OBJ_DIR)/%.o)
 O_BONUS := $(S_BONUS:%.c=$(OBJ_DIR)/%.o)
 
