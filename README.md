@@ -1,3 +1,3 @@
 # Libft
 
-Libft prepared for the start of 42 school.
+42 Projet : Libft
