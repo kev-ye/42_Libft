@@ -6,7 +6,7 @@
 #    By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/04 16:59:07 by kaye              #+#    #+#              #
-#    Updated: 2020/11/04 16:59:08 by kaye             ###   ########.fr        #
+#    Updated: 2020/11/25 22:36:47 by kaye             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,8 @@ SUB_DIR	:= ctype \
 		   memory \
 		   string \
 		   io \
-		   list		   
+		   list	\
+		   utils	   
 DIRS	:= $(OBJ_DIR) $(addprefix $(OBJ_DIR)/, $(SUB_DIR))
 
 # FILES
@@ -63,14 +64,15 @@ SUB_SRC := ft_strlen.c \
 		   ft_strtrim.c \
 		   ft_split.c \
 		   ft_itoa.c \
-		   ft_strmapi.c
+		   ft_strmapi.c \
+		   ft_itoa_base.c
 SRC 	+= $(addprefix string/, $(SUB_SRC))
 SUB_SRC := ft_putchar_fd.c \
 		   ft_putstr_fd.c \
 		   ft_putendl_fd.c \
 		   ft_putnbr_fd.c
 SRC		+= $(addprefix io/, $(SUB_SRC))
-SUB_S_B	:= ft_lstnew.c \
+SUB_SRC	:= ft_lstnew.c \
 		   ft_lstadd_front.c \
 		   ft_lstsize.c \
 		   ft_lstlast.c \
@@ -79,9 +81,10 @@ SUB_S_B	:= ft_lstnew.c \
 		   ft_lstclear.c \
 		   ft_lstiter.c \
 		   ft_lstmap.c
-S_BONUS	:= $(addprefix list/, $(SUB_S_B))
+SRC		+= $(addprefix list/, $(SUB_SRC))
+SUB_SRC := ft_intlen_base.c
+SRC		+= $(addprefix utils/, $(SUB_SRC))
 OBJ 	:= $(SRC:%.c=$(OBJ_DIR)/%.o)
-O_BONUS := $(S_BONUS:%.c=$(OBJ_DIR)/%.o)
 
 # COLORS
 
@@ -103,11 +106,6 @@ $(NAME): $(OBJ)
 	@echo "$(GREEN_COLOR)Compilation $(YELLOW_COLOR)of $(RED_COLOR)$@ $(BLUE_COLOR)done$(DEFAULT_COLOR)"
 	
 all: $(NAME)
-
-bonus: $(NAME) $(O_BONUS)
-	@echo "Creating $(RED_COLOR)$(NAME) with bonus $(DEFAULT_COLOR)..."
-	@ar -rcs $(NAME) $(O_BONUS)
-	@echo "$(GREEN_COLOR)Compilation $(YELLOW_COLOR)of $(RED_COLOR)$(NAME) with bonus $(BLUE_COLOR)done$(DEFAULT_COLOR)"
 
 clean:
 		rm -Rf $(BUILD)

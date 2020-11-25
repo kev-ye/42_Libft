@@ -1,3 +1,7 @@
 # Libft
 
-42 Projet : Libft
+My libft :
+
+-> 25/11/20
+add function : ft_itoa_base.c
+add function : ft_intlen_base.c
