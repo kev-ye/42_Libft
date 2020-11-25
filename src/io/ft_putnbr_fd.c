@@ -6,7 +6,7 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 16:56:53 by kaye              #+#    #+#             */
-/*   Updated: 2020/11/04 17:41:32 by kaye             ###   ########.fr       */
+/*   Updated: 2020/11/25 20:35:17 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,18 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	unsigned int nbr;
+	char			buffer[BUFFER_SIZE_PN];
+	unsigned int	nbr;
+	size_t			i;
 
-	if (n < 0)
+	nbr = (n < 0) ? -n : n;
+	i = BUFFER_SIZE_PN;
+	while (nbr || i == BUFFER_SIZE_PN)
 	{
-		ft_putchar_fd('-', fd);
-		nbr = -(unsigned int)n;
+		buffer[--i] = nbr % 10 + '0';
+		nbr /= 10;
 	}
-	else
-		nbr = (unsigned int)n;
-	if (nbr > 9)
-		ft_putnbr_fd(nbr / 10, fd);
-	ft_putchar_fd(nbr % 10 + '0', fd);
+	if (n < 0)
+		buffer[--i] = '-';
+	write(fd, buffer + i, BUFFER_SIZE_PN - i);
 }
