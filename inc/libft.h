@@ -6,7 +6,7 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 16:52:49 by kaye              #+#    #+#             */
-/*   Updated: 2020/11/25 20:57:06 by kaye             ###   ########.fr       */
+/*   Updated: 2020/11/26 23:11:35 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,6 @@ t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 /*
 ** Utiles function
 */
-size_t	ft_intlen_base(int n, int base);
+size_t			ft_intlen_base(int n, int base);
 
 #endif
