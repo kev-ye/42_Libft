@@ -24,3 +24,6 @@
     * 06/01/21
         * add function : ft_strcmp.c
     
+    * 07/01/21
+        * add function : ft_strnlen.c
+    

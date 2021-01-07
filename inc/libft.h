@@ -6,7 +6,7 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 16:52:49 by kaye              #+#    #+#             */
-/*   Updated: 2021/01/06 11:42:13 by kaye             ###   ########.fr       */
+/*   Updated: 2021/01/07 13:04:04 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char			*ft_itoa_base(int n, int base);
 char			*ft_strcpy(char *dst, const char *src);
 int				ft_strcmp(const char *s1, const char *s2);
+size_t			ft_strnlen(const char *s, size_t maxlen);
 
 /*
 ** Ctype function
