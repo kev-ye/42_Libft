@@ -26,4 +26,7 @@
     
     * 07/01/21
         * add function : ft_strnlen.c
+
+    * 12/01/21
+        * add function : ft_charinstr.c
     
