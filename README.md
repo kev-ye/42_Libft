@@ -15,7 +15,6 @@
     
     * 09/12/20
         * add function : get_next_line.c
-        * add function : ft_printf.c
         * norme check
 
 	* 05/01/21
