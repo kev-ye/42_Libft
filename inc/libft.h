@@ -6,7 +6,7 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 16:52:49 by kaye              #+#    #+#             */
-/*   Updated: 2021/01/12 11:24:30 by kaye             ###   ########.fr       */
+/*   Updated: 2021/01/20 18:35:34 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include "private/get_next_line.h"
-# include "private/ft_printf.h"
 # define BUFFER_SIZE_PN 11
 # define BUFFER_SIZE 4096
 
