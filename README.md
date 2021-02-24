@@ -15,7 +15,6 @@
     
     * 09/12/20
         * add function : get_next_line.c
-        * add function : ft_printf.c
         * norme check
 
 	* 05/01/21
@@ -32,3 +31,6 @@
     
     * 04/02/21
         * add function : ft_strcat.c
+
+    * 24/02/21
+        * add function : ft_isspace.c
