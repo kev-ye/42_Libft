@@ -6,7 +6,7 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 20:55:23 by kaye              #+#    #+#             */
-/*   Updated: 2021/03/09 21:09:00 by kaye             ###   ########.fr       */
+/*   Updated: 2021/03/09 21:24:20 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ char	*ft_itoa_base(int n, int base)
 	char			*str;
 	unsigned int	n_tmp;
 
+	if (base == 1)
+		return (NULL);
 	n_tmp = n;
 	len = ft_intlen_base(n_tmp, base);
 	if (n < 0)

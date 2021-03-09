@@ -6,7 +6,7 @@
 #    By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/04 16:59:07 by kaye              #+#    #+#              #
-#    Updated: 2021/02/24 16:31:04 by kaye             ###   ########.fr        #
+#    Updated: 2021/03/09 21:19:24 by kaye             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ SUB_DIR	:= ctype \
 		   string \
 		   io \
 		   list	\
-		   utils	   
+		   utile
 DIRS	:= $(OBJ_DIR) $(addprefix $(OBJ_DIR)/, $(SUB_DIR))
 
 # FILES
@@ -92,8 +92,8 @@ SUB_SRC	:= ft_lstnew.c \
 		   ft_lstmap.c
 SRC		+= $(addprefix list/, $(SUB_SRC))
 SUB_SRC := ft_intlen_base.c \
-		   get_next_line_utils.c \
-SRC		+= $(addprefix utils/, $(SUB_SRC))
+		   get_next_line_utils.c
+SRC		+= $(addprefix utile/, $(SUB_SRC))
 OBJ 	:= $(SRC:%.c=$(OBJ_DIR)/%.o)
 
 # COLORS

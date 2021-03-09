@@ -6,7 +6,7 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 16:44:43 by kaye              #+#    #+#             */
-/*   Updated: 2021/03/09 19:36:52 by kaye             ###   ########.fr       */
+/*   Updated: 2021/03/09 21:14:51 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,5 @@ void			ft_lstadd_front_gnl(t_set **alst, t_set *new);
 void			ft_list_remove_gnl(t_set **alst);
 size_t			ft_strlen_gnl(const char *s);
 char			*ft_strjoin_gnl(char const *s1, char const *s2);
-int				get_next_line(int fd, char **line);
 
 #endif
