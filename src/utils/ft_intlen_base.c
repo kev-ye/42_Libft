@@ -6,7 +6,7 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 20:54:11 by kaye              #+#    #+#             */
-/*   Updated: 2020/11/25 20:54:56 by kaye             ###   ########.fr       */
+/*   Updated: 2021/03/09 19:46:59 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,12 @@
 
 size_t	ft_intlen_base(int n, int base)
 {
-	size_t count;
+	size_t	count;
 
-	count = (n) ? 0 : 1;
+	if (n)
+		count = 0;
+	else
+		count = 1;
 	while (n)
 	{
 		n = n / base;

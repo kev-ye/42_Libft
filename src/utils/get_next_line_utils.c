@@ -6,13 +6,25 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 20:10:50 by kaye              #+#    #+#             */
-/*   Updated: 2020/12/09 20:56:59 by kaye             ###   ########.fr       */
+/*   Updated: 2021/03/09 19:37:35 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_strjoin_gnl(char const *s1, char const *s2)
+size_t	ft_strlen_gnl(const char *s)
+{
+	const char	*str;
+
+	if (!s)
+		return (0);
+	str = s;
+	while (*str)
+		++str;
+	return (str - s);
+}
+
+char	*ft_strjoin_gnl(char const *s1, char const *s2)
 {
 	size_t	len;
 	char	*str;
@@ -20,8 +32,9 @@ char		*ft_strjoin_gnl(char const *s1, char const *s2)
 
 	if (!s1 && !s2)
 		return (NULL);
-	len = ((s1) ? ft_strlen(s1) : 0) + ((s2) ? ft_strlen(s2) : 0);
-	if (!(str = (char *)malloc(sizeof(char) * (len + 1))))
+	len = ft_strlen_gnl(s1) + ft_strlen_gnl(s2);
+	str = (char *)malloc(sizeof(char) * (len + 1));
+	if (!str)
 		return (NULL);
 	i = 0;
 	while (s1 && s1[i])
@@ -34,11 +47,12 @@ char		*ft_strjoin_gnl(char const *s1, char const *s2)
 	return (str - len);
 }
 
-t_set		*ft_lstnew_gnl(void)
+t_set	*ft_lstnew_gnl(void)
 {
-	t_set *new;
+	t_set	*new;
 
-	if ((new = (t_set *)malloc(sizeof(t_set))))
+	new = (t_set *)malloc(sizeof(t_set));
+	if (new)
 	{
 		new->fd = 0;
 		new->str = NULL;
@@ -47,17 +61,17 @@ t_set		*ft_lstnew_gnl(void)
 	return (new);
 }
 
-void		ft_lstadd_front_gnl(t_set **alst, t_set *new)
+void	ft_lstadd_front_gnl(t_set **alst, t_set *new)
 {
 	if (*alst)
 		new->next = *alst;
 	*alst = new;
 }
 
-void		ft_list_remove_gnl(t_set **alst)
+void	ft_list_remove_gnl(t_set **alst)
 {
-	t_set *prev;
-	t_set *list;
+	t_set	*prev;
+	t_set	*list;
 
 	prev = NULL;
 	list = *alst;
@@ -70,7 +84,10 @@ void		ft_list_remove_gnl(t_set **alst)
 			else
 				*alst = list->next;
 			free(list);
-			list = ((prev) ? prev->next : *alst);
+			if (prev)
+				list = prev->next;
+			else
+				list = *alst;
 		}
 		else
 		{

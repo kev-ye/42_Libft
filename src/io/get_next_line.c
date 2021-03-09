@@ -6,15 +6,15 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 20:10:41 by kaye              #+#    #+#             */
-/*   Updated: 2020/12/09 20:56:53 by kaye             ###   ########.fr       */
+/*   Updated: 2021/03/09 19:35:09 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		is_newline(char *s)
+static int	is_newline(char *s)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (!s)
@@ -28,7 +28,7 @@ static int		is_newline(char *s)
 	return (0);
 }
 
-static char		*get_line(char *s)
+static char	*get_line(char *s)
 {
 	char	*str;
 	int		i;
@@ -38,7 +38,8 @@ static char		*get_line(char *s)
 	i = 0;
 	while (s[i] && s[i] != '\n')
 		++i;
-	if (!(str = (char *)malloc(sizeof(char) * (i + 1))))
+	str = (char *)malloc(sizeof(char) * (i + 1));
+	if (!str)
 		return (NULL);
 	i = 0;
 	while (s[i] && s[i] != '\n')
@@ -50,7 +51,7 @@ static char		*get_line(char *s)
 	return (str);
 }
 
-static char		*next_line(char *s)
+static char	*next_line(char *s)
 {
 	char	*str;
 	char	*tmp;
@@ -66,7 +67,8 @@ static char		*next_line(char *s)
 		free(s);
 		return (NULL);
 	}
-	if (!(tmp = (char *)malloc(sizeof(char) * (ft_strlen(s) - i + 1))))
+	tmp = (char *)malloc(sizeof(char) * (ft_strlen_gnl(s) - i + 1));
+	if (!tmp)
 		return (NULL);
 	++i;
 	str = tmp;
@@ -77,13 +79,14 @@ static char		*next_line(char *s)
 	return (str);
 }
 
-static t_set	*current_set(t_set **set, int fd)
+static t_set	*current_set(t_set **set, int fd, t_set *tmp)
 {
-	t_set *tmp;
-
 	if (!*set)
-		if (!(*set = ft_lstnew_gnl()))
+	{
+		*set = ft_lstnew_gnl();
+		if (!*set)
 			return (NULL);
+	}
 	tmp = *set;
 	if ((*set)->fd && (*set)->fd != fd)
 	{
@@ -105,30 +108,28 @@ static t_set	*current_set(t_set **set, int fd)
 	return (tmp);
 }
 
-int				get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
 	static t_set	*set;
-	t_set			*tmp;
-	char			*buff;
-	int				ret;
+	t_v3			var;
 
 	if (!line || fd < 0 || BUFFER_SIZE <= 0)
 		return (-1);
-	if (!(buff = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1))))
-		return (-1);
-	ret = 1;
-	tmp = current_set(&set, fd);
-	while (!is_newline(tmp->str) && ret != 0)
+	var.ret = 1;
+	var.tmp = current_set(&set, fd, var.tmp);
+	while (!is_newline(var.tmp->str) && var.ret != 0)
 	{
-		if ((ret = read(tmp->fd, buff, BUFFER_SIZE)) < 0)
+		var.ret = read(var.tmp->fd, var.buff, BUFFER_SIZE);
+		if (var.ret < 0)
 			return (-1);
-		buff[ret] = '\0';
-		tmp->str = ft_strjoin_gnl(tmp->str, buff);
+		var.buff[var.ret] = '\0';
+		var.tmp->str = ft_strjoin_gnl(var.tmp->str, var.buff);
 	}
-	free(buff);
-	*line = get_line(tmp->str);
-	tmp->str = next_line(tmp->str);
-	if (!tmp->str)
+	*line = get_line(var.tmp->str);
+	var.tmp->str = next_line(var.tmp->str);
+	if (!var.tmp->str)
 		ft_list_remove_gnl(&set);
-	return ((ret) ? 1 : 0);
+	if (var.ret)
+		return (1);
+	return (0);
 }

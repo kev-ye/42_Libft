@@ -12,6 +12,8 @@ The aim of this project is to code a C library regrouping usual functions that y
 
 ## List_of_function
 
+    🆕 Norme to V3 DONE!
+
 >**ctype**
 >>[ft_isalnum.c](./src/ctype/ft_isalnum.c)  
 [ft_alpha.c](./src/ctype/ft_alpha.c)  

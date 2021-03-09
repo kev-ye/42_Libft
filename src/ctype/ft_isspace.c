@@ -6,7 +6,7 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/24 16:16:01 by kaye              #+#    #+#             */
-/*   Updated: 2021/02/24 16:24:43 by kaye             ###   ########.fr       */
+/*   Updated: 2021/03/09 17:08:42 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** Checks if the character c is space.
 */
 
-int		ft_isspace(int c)
+int	ft_isspace(int c)
 {
 	return ((c >= '\t' && c <= '\r') || c == ' ');
 }

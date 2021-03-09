@@ -6,7 +6,7 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 16:58:04 by kaye              #+#    #+#             */
-/*   Updated: 2021/01/20 18:58:11 by kaye             ###   ########.fr       */
+/*   Updated: 2021/03/09 19:59:51 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 static size_t	ft_intlen(int n)
 {
-	size_t count;
+	size_t	count;
 
 	if (n != 0)
 		count = 0;
@@ -32,7 +32,7 @@ static size_t	ft_intlen(int n)
 	return (count);
 }
 
-char			*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	size_t			len;
 	char			*str;
@@ -42,8 +42,12 @@ char			*ft_itoa(int n)
 		n_tmp = -(unsigned int)n;
 	else
 		n_tmp = n;
-	len = (n < 0) ? ft_intlen(n_tmp) + 1 : ft_intlen(n_tmp);
-	if (!(str = (char *)malloc(sizeof(char) * (len + 1))))
+	if (n < 0)
+		len = ft_intlen(n_tmp) + 1;
+	else
+		len = ft_intlen(n_tmp);
+	str = (char *)malloc(sizeof(char) * (len + 1));
+	if (!str)
 		return (NULL);
 	str[len] = '\0';
 	while (len--)

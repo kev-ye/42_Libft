@@ -6,7 +6,7 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 12:56:34 by kaye              #+#    #+#             */
-/*   Updated: 2021/01/07 12:58:29 by kaye             ###   ########.fr       */
+/*   Updated: 2021/03/09 19:50:04 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 size_t	ft_strnlen(const char *s, size_t maxlen)
 {
-	const char *str;
+	const char	*str;
 
 	str = s;
 	while (*str && maxlen--)
