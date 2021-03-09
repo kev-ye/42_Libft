@@ -6,7 +6,7 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 16:57:38 by kaye              #+#    #+#             */
-/*   Updated: 2021/03/09 20:00:46 by kaye             ###   ########.fr       */
+/*   Updated: 2021/03/09 20:27:52 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,8 @@ void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 	while (n--)
 	{
 		*d = *s;
-		if (*d == (unsigned char)c)
-			return (d);
-		d++;
+		if (*d++ == (unsigned char)c)
+		 	return (d);
 		s++;
 	}
 	return (NULL);
