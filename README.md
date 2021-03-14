@@ -30,6 +30,7 @@ The aim of this project is to code a C library regrouping usual functions that y
 [ft_putstr_fd.c](./src/io/ft_putstr_fd.c)  
 [ft_putstr.c](./src/io/ft_putstr.c)  
 [get_next_line.c](./src/io/get_next_line.c)  
+[ft_printf.c](./src/io/ft_printf.c)  
 
 >**list**
 >>[ft_lstadd_back.c](./src/list/ft_lstadd_back.c)  
