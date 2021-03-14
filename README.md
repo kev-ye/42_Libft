@@ -54,6 +54,7 @@ The aim of this project is to code a C library regrouping usual functions that y
 
 >**string**
 >>[ft_atoi.c](./src/string/ft_atoi.c)  
+[ft_atoll.c](./src/string/ft_atoll.c)  
 [ft_charinstr.c](./src/string/ft_charinstr.c)   
 [ft_itoa_base.c](./src/string/ft_itoa_base.c)  
 [ft_itoa.c](./src/string/ft_itoa.c)  
