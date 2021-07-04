@@ -6,7 +6,7 @@
 #    By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/25 22:45:37 by kaye              #+#    #+#              #
-#    Updated: 2021/07/04 17:30:44 by kaye             ###   ########.fr        #
+#    Updated: 2021/07/04 17:45:10 by kaye             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -86,7 +86,7 @@ $(OBJ_DIR):
 	@mkdir $(DIRS)
 
 $(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
-	@printf "$(CL_LINE)Compiling srcs object : $(B_CYAN)$< $(NONE)...\r$(S_CURSUS)"
+	@printf "$(CL_LINE)Compiling srcs object : $(B_MAGENTA)$< $(NONE)...\r$(S_CURSUS)"
 	@$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
 
 .PHONY: all clean fclean re
