@@ -6,7 +6,7 @@
 #    By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/25 22:45:37 by kaye              #+#    #+#              #
-#    Updated: 2021/03/28 19:46:14 by kaye             ###   ########.fr        #
+#    Updated: 2021/07/04 17:30:44 by kaye             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,41 +53,40 @@ OBJ			:= $(SRC:%.c=$(OBJ_DIR)/%.o)
 
 # COLORS
 
-DEFAULT_COLOR	= \033[0m
-BLACK_COLOR		= \033[1;30m
-RED_COLOR		= \033[1;31m
-GREEN_COLOR		= \033[1;32m
-YELLOW_COLOR	= \033[1;33m
-BLUE_COLOR		= \033[1;34m
-MAGENTA_COLOR 	= \033[1;35m
-CYAN_COLOR 		= \033[1;36m
-WHITE_COLOR 	= \033[1;107m
+NONE			= \033[0m
+CL_LINE			= \033[2K
+S_CURSUS		= \033[s
+J_CURSUS		= \033[u
+B_BLACK			= \033[1;30m
+B_RED			= \033[1;31m
+B_GREEN			= \033[1;32m
+B_YELLOW		= \033[1;33m
+B_BLUE			= \033[1;34m
+B_MAGENTA 		= \033[1;35m
+B_CYAN 			= \033[1;36m
 
 # MAKEFILE
 
 $(NAME): $(OBJ)
-	@echo "Creating $(RED_COLOR)$@ $(DEFAULT_COLOR)..."
 	@ar -rcs $@ $^
-	@echo "$(GREEN_COLOR)Compilation $(YELLOW_COLOR)of $(RED_COLOR)$@ $(BLUE_COLOR)done$(DEFAULT_COLOR)"
 
 all: $(NAME)
 
 bonus: all
 
 clean:
-	rm -Rf $(OBJ_DIR)
+	@rm -Rf $(OBJ_DIR)
 
 fclean: clean
-	rm -Rf $(NAME)
+	@rm -Rf $(NAME)
 
 re: fclean all
 
 $(OBJ_DIR):
-	@echo "Creating $(RED_COLOR)$@ $(DEFAULT_COLOR)..."
 	@mkdir $(DIRS)
 
 $(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
-	@echo "Compiling $(MAGENTA_COLOR)$< $(DEFAULT_COLOR)..."
+	@printf "$(CL_LINE)Compiling srcs object : $(B_CYAN)$< $(NONE)...\r$(S_CURSUS)"
 	@$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
 
 .PHONY: all clean fclean re

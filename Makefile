@@ -6,7 +6,7 @@
 #    By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/04 16:59:07 by kaye              #+#    #+#              #
-#    Updated: 2021/03/28 19:42:34 by kaye             ###   ########.fr        #
+#    Updated: 2021/07/04 17:29:33 by kaye             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -102,44 +102,46 @@ OBJ 	:= $(SRC:%.c=$(OBJ_DIR)/%.o)
 
 # COLORS
 
-DEFAULT_COLOR	= \033[0m
-BLACK_COLOR		= \033[1;30m
-RED_COLOR		= \033[1;31m
-GREEN_COLOR		= \033[1;32m
-YELLOW_COLOR	= \033[1;33m
-BLUE_COLOR		= \033[1;34m
-MAGENTA_COLOR 	= \033[1;35m
-CYAN_COLOR 		= \033[1;36m
-WHITE_COLOR 	= \033[1;107m
+NONE			= \033[0m
+CL_LINE			= \033[2K
+S_CURSUS		= \033[s
+J_CURSUS		= \033[u
+B_BLACK			= \033[1;30m
+B_RED			= \033[1;31m
+B_GREEN			= \033[1;32m
+B_YELLOW		= \033[1;33m
+B_BLUE			= \033[1;34m
+B_MAGENTA 		= \033[1;35m
+B_CYAN 			= \033[1;36m
 
 # MAKEFILE
 
 $(NAME): $(OBJ)
-	@echo "Creating $(RED_COLOR) $(FT_PRINTF) $(DEFAULT_COLOR)..."
 	@$(MAKE) -C $(PTF_DIR)
 	@cp $(PTF_DIR)/$(PTF) $(NAME)
-	@echo "Creating $(RED_COLOR)$@ $(DEFAULT_COLOR)..."
+	@printf "$(CL_LINE)$(J_CURSUS)"
 	@ar -rcs $@ $^
-	@echo "$(GREEN_COLOR)Compilation $(YELLOW_COLOR)of $(RED_COLOR)$@ $(BLUE_COLOR)done$(DEFAULT_COLOR)"
+	@@echo "Compilation of $(B_RED)$@$(NONE) done"
 	
 all: $(NAME)
 
 clean:
-		$(MAKE) -C $(PTF_DIR) clean
-		rm -Rf $(BUILD)
+	@$(MAKE) -C $(PTF_DIR) clean
+	@rm -Rf $(BUILD)
+	@echo "$(B_RED)$(BUILD)$(NONE) -> $(B_GREEN)Delete$(NONE)"
 
 fclean: clean
-		$(MAKE) -C $(PTF_DIR) fclean
-		rm -Rf $(NAME)
+	@$(MAKE) -C $(PTF_DIR) fclean
+	@rm -Rf $(NAME)
+	@echo "$(B_RED)$(NAME)$(NONE)  -> $(B_GREEN)Delete$(NONE)"
 
 re: fclean all
 
 $(BUILD):
-		@echo "Creating $(RED_COLOR)$@ $(DEFAULT_COLOR)..."
-		@mkdir $@ $(DIRS)
+	@mkdir $@ $(DIRS)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(BUILD)
-		@echo "Compiling $(YELLOW_COLOR)$< $(DEFAULT_COLOR)..."
-		@$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
+	@printf "$(CL_LINE)Compiling srcs object : $(B_CYAN)$< $(NONE)...\r$(S_CURSUS)"
+	@$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
 
 .PHONY: all clean fclean re
