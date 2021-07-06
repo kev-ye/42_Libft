@@ -6,7 +6,7 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 22:34:03 by kaye              #+#    #+#             */
-/*   Updated: 2021/03/28 19:52:08 by kaye             ###   ########.fr       */
+/*   Updated: 2021/07/06 15:37:56 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,17 @@
 # define BLUE "\033[0;34m"
 # define PURPLE "\033[0;35m"
 # define CYAN "\033[0;36m"
+
+/*
+** BOLD
+*/
+# define B_BLACK "\033[1;30m"
+# define B_RED "\033[1;31m"
+# define B_GREEN "\033[1;32m"
+# define B_YELLOW "\033[1;33m"
+# define B_BLUE "\033[1;34m"
+# define B_PURPLE "\033[1;35m"
+# define B_CYAN "\033[1;36m"
 
 /*
 ** BACKGROUND

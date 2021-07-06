@@ -6,7 +6,7 @@
 #    By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/04 16:59:07 by kaye              #+#    #+#              #
-#    Updated: 2021/07/06 15:35:19 by kaye             ###   ########.fr        #
+#    Updated: 2021/07/06 15:36:48 by kaye             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -118,7 +118,6 @@ $(NAME): $(OBJ)
 	@printf "$(CL_LINE)"
 	@$(MAKE) -C $(PTF_DIR)
 	@cp $(PTF_DIR)/$(PTF) $(NAME)
-	@printf "$(CL_LINE)$(J_CURSUS)"
 	@ar -rcs $@ $^
 	
 all: $(NAME)
