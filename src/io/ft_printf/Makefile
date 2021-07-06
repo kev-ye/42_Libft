@@ -6,7 +6,7 @@
 #    By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/25 22:45:37 by kaye              #+#    #+#              #
-#    Updated: 2021/07/04 17:45:10 by kaye             ###   ########.fr        #
+#    Updated: 2021/07/06 15:34:50 by kaye             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,8 +55,6 @@ OBJ			:= $(SRC:%.c=$(OBJ_DIR)/%.o)
 
 NONE			= \033[0m
 CL_LINE			= \033[2K
-S_CURSUS		= \033[s
-J_CURSUS		= \033[u
 B_BLACK			= \033[1;30m
 B_RED			= \033[1;31m
 B_GREEN			= \033[1;32m
@@ -68,6 +66,7 @@ B_CYAN 			= \033[1;36m
 # MAKEFILE
 
 $(NAME): $(OBJ)
+	@printf "$(CL_LINE)"
 	@ar -rcs $@ $^
 
 all: $(NAME)
@@ -86,7 +85,7 @@ $(OBJ_DIR):
 	@mkdir $(DIRS)
 
 $(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
-	@printf "$(CL_LINE)Compiling srcs object : $(B_MAGENTA)$< $(NONE)...\r$(S_CURSUS)"
+	@printf "$(CL_LINE)Compiling srcs object : $(B_MAGENTA)$< $(NONE)...\r"
 	@$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
 
 .PHONY: all clean fclean re

@@ -6,7 +6,7 @@
 #    By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/04 16:59:07 by kaye              #+#    #+#              #
-#    Updated: 2021/07/04 17:29:33 by kaye             ###   ########.fr        #
+#    Updated: 2021/07/06 15:35:19 by kaye             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -104,8 +104,6 @@ OBJ 	:= $(SRC:%.c=$(OBJ_DIR)/%.o)
 
 NONE			= \033[0m
 CL_LINE			= \033[2K
-S_CURSUS		= \033[s
-J_CURSUS		= \033[u
 B_BLACK			= \033[1;30m
 B_RED			= \033[1;31m
 B_GREEN			= \033[1;32m
@@ -117,23 +115,23 @@ B_CYAN 			= \033[1;36m
 # MAKEFILE
 
 $(NAME): $(OBJ)
+	@printf "$(CL_LINE)"
 	@$(MAKE) -C $(PTF_DIR)
 	@cp $(PTF_DIR)/$(PTF) $(NAME)
 	@printf "$(CL_LINE)$(J_CURSUS)"
 	@ar -rcs $@ $^
-	@@echo "Compilation of $(B_RED)$@$(NONE) done"
 	
 all: $(NAME)
 
 clean:
 	@$(MAKE) -C $(PTF_DIR) clean
 	@rm -Rf $(BUILD)
-	@echo "$(B_RED)$(BUILD)$(NONE) -> $(B_GREEN)Delete$(NONE)"
+	@echo "$(B_RED)$(BUILD)$(NONE) : $(B_GREEN)Delete$(NONE)"
 
 fclean: clean
 	@$(MAKE) -C $(PTF_DIR) fclean
 	@rm -Rf $(NAME)
-	@echo "$(B_RED)$(NAME)$(NONE)  -> $(B_GREEN)Delete$(NONE)"
+	@echo "$(B_RED)$(NAME)$(NONE) : $(B_GREEN)Delete$(NONE)"
 
 re: fclean all
 
@@ -141,7 +139,7 @@ $(BUILD):
 	@mkdir $@ $(DIRS)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(BUILD)
-	@printf "$(CL_LINE)Compiling srcs object : $(B_CYAN)$< $(NONE)...\r$(S_CURSUS)"
+	@printf "$(CL_LINE)Compiling srcs object : $(B_CYAN)$< $(NONE)...\r"
 	@$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
 
 .PHONY: all clean fclean re
