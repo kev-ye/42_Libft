@@ -6,7 +6,7 @@
 #    By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/04 16:59:07 by kaye              #+#    #+#              #
-#    Updated: 2021/07/06 15:36:48 by kaye             ###   ########.fr        #
+#    Updated: 2021/11/19 15:26:48 by kaye             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -116,9 +116,12 @@ B_CYAN 			= \033[1;36m
 
 $(NAME): $(OBJ)
 	@printf "$(CL_LINE)"
+	@echo "[1 / 3] - $(B_MAGENTA)LIBFTOBJ$(NONE)"
 	@$(MAKE) -C $(PTF_DIR)
+	@echo "[2 / 3] - $(B_MAGENTA)PFT$(NONE)"
 	@cp $(PTF_DIR)/$(PTF) $(NAME)
 	@ar -rcs $@ $^
+	@echo "[3 / 3] - $(B_MAGENTA)$@$(NONE)"
 	
 all: $(NAME)
 

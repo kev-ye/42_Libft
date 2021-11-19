@@ -6,7 +6,7 @@
 #    By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/25 22:45:37 by kaye              #+#    #+#              #
-#    Updated: 2021/07/06 15:34:50 by kaye             ###   ########.fr        #
+#    Updated: 2021/11/19 15:26:27 by kaye             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,14 +14,14 @@
 
 CC 			= gcc
 CFLAGS		= -Wall -Wextra -Werror
-IFLAGS 		= -I./inc_pf -I../../../inc
+IFLAGS 		= -I./inc -I../../../inc
 
 # DIRECTORIES
 
-INC_DIR	 	:= inc_pf
-SRC_DIR  	:= src_pf
+INC_DIR	 	:= inc
+SRC_DIR  	:= src
 SUB_DIR		:= printf_family
-OBJ_DIR	 	:= .obj_pf
+OBJ_DIR	 	:= .obj
 DIRS		:= $(OBJ_DIR) $(addprefix $(OBJ_DIR)/, $(SRC_DIR)) \
 			   $(addprefix $(OBJ_DIR)/$(SRC_DIR)/, $(SUB_DIR))
 

@@ -6,7 +6,7 @@
 /*   By: kaye <kaye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 20:51:42 by kaye              #+#    #+#             */
-/*   Updated: 2021/03/28 18:16:12 by kaye             ###   ########.fr       */
+/*   Updated: 2021/11/19 15:23:16 by kaye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,45 +14,51 @@
 
 int	ft_type(int type)
 {
-	if (type == 'c')
-		return (1);
-	else if (type == 's')
-		return (1);
-	else if (type == 'p')
-		return (1);
-	else if (type == 'd' || type == 'i')
-		return (1);
-	else if (type == 'u')
-		return (1);
-	else if (type == 'x')
-		return (1);
-	else if (type == 'X')
-		return (1);
-	else if (type == '%')
-		return (1);
-	else if (type == 'n')
-		return (1);
-	else if (type == 'o')
-		return (1);
+	const char	t[] = {
+		'c',
+		's',
+		'p',
+		'd',
+		'i',
+		'u',
+		'x',
+		'X',
+		'%',
+		'n',
+		'o',
+		'\0'
+	};
+	int			i;
+
+	i = 0;
+	while (t[i] != '\0')
+	{
+		if (type == t[i++])
+			return (1);
+	}
 	return (0);
 }
 
 int	ft_flags(int flag)
 {
-	if (flag == '-')
-		return (1);
-	else if (flag == '0')
-		return (1);
-	else if (flag == '.')
-		return (1);
-	else if (flag == '*')
-		return (1);
-	else if (flag == ' ')
-		return (1);
-	else if (flag == '+')
-		return (1);
-	else if (flag == '#')
-		return (1);
+	const char	f[] = {
+		'-',
+		'0',
+		'.',
+		'*',
+		' ',
+		'+',
+		'#',
+		'\0'
+	};
+	int			i;
+
+	i = 0;
+	while (f[i] != '\0')
+	{
+		if (flag == f[i++])
+			return (1);
+	}
 	return (0);
 }
 
